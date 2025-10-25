@@ -26,6 +26,10 @@ The arduino code has been created with the help of Claude. While I'm a system ad
 - The ESP32 will connect to R2D2 through Bluetooth and wake him up
 - The ESP32 will connect to your Wifi and provide a simple API where you can call the animations on R2D2
 
+# A little action video
+
+<video width="630" height="300" src="[https://github.com/h311m4n000/HA-Control-Sphero-R2D2/blob/main/r2d2.mp4]" controls></video>
+
 # API Commands
 Once the sketch has been uploaded to your ESP32, you can call these actions from your web browser (or use curl):
 ### Wake R2D2
