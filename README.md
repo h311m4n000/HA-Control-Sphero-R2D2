@@ -28,7 +28,7 @@ The arduino code has been created with the help of Claude. While I'm a system ad
 
 # A little action video
 
-[![Watch the video]([https://img.youtube.com/vi/_5tFXJQIzi4/0.jpg](https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg))](https://youtube.com/shorts/zgOqJGl-u00)
+[![Watch the video](https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg)](https://youtube.com/shorts/zgOqJGl-u00)
 
 # API Commands
 Once the sketch has been uploaded to your ESP32, you can call these actions from your web browser (or use curl):
