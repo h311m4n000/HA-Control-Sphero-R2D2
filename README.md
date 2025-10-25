@@ -56,13 +56,14 @@ These are all the actions (previously called services) you can call to simplify 
 - Reverse engineering of R2D2 by Andrea Stagi with node.js
 [Reverse Engineering Sphero R2D2 with JavaScript - DEV Community](https://dev.to/astagi/reverse-engineering-sphero-r2d2-with-javascript-16ip)
 
--Andre Stagi's repo (I used index.js and made Claude convert it for arduino)
+- Andre Stagi's repo (I used index.js and made Claude convert it for arduino)
 [astagi/freer2: ✨BLE reverse engineering with Star Wars R2D2 Sphero Droid](https://github.com/astagi/freer2)
 
--Emwire control of R2D2
+- Emwire control of R2D2
 [EMWiRES](http://www.emwires.com/ESP32USB/index.html#ESP02)
 
--Synack python script to control R2D2
+- Synack python script to control R2D2
 [synack.net/~bbraun/spherodroid/r2.py](http://www.synack.net/~bbraun/spherodroid/r2.py)
-Synack article on interfacing with R2D2
+
+- Synack article on interfacing with R2D2
 [Scripting Sphero's Star Wars Droids](http://www.synack.net/~bbraun/spherodroid/)
