@@ -27,10 +27,6 @@ The arduino code has been created with the help of Claude. While I'm a system ad
 - The ESP32 will connect to your Wifi and provide a simple API where you can call the animations on R2D2
 - From home assistant using REST and RESTful you can query the API and wake R2D2, call all the animations, put him in tripod/bipod mode and put him back to sleep
 
-# A little action video
-
-[![Watch the video](https://img.youtube.com/vi/zgOqJGl-u00/hqdefault.jpg)](https://youtube.com/shorts/zgOqJGl-u00)
-
 # API Commands
 Once the sketch has been uploaded to your ESP32, you can call these actions from your web browser (or use curl):
 ### Wake R2D2
