@@ -1,0 +1,97 @@
+rest_command:
+    url: "http://esp32_ip/wake"
+    method: POST
+  r2d2_sleep:
+    url: "http://esp32_ip/sleep"
+    method: POST
+  r2d2_animation:
+    url: "http://esp32_ip/anim?n={{ num }}"
+    method: POST
+  r2d2_tripod:
+    url: "http://esp32_ip/stance?type=1"
+    method: POST
+  r2d2_bipod:
+    url: "http://esp32_ip/stance?type=2"
+    method: POST
+
+rest:
+  - resource: "http://esp32_ip/battery"
+    scan_interval: 60
+    sensor:
+      - name: "R2-D2 Battery"
+        value_template: "{{ value_json.b }}"
+        unit_of_measurement: "%"
+        device_class: battery
+
+input_select:
+  r2d2_animation:
+    name: R2-D2 Animation
+    options:
+      # Charger Animations (0-6)
+      - "0: Charger 1"
+      - "1: Charger 2"
+      - "2: Charger 3"
+      - "3: Charger 4"
+      - "4: Charger 5"
+      - "5: Charger 6"
+      - "6: Charger 7"
+
+      # Emote Animations (7-24)
+      - "7: Alarm"
+      - "8: Angry"
+      - "9: Annoyed"
+      - "10: Chatty"
+      - "11: Drive"
+      - "12: Excited"
+      - "13: Happy"
+      - "14: Ion Blast"
+      - "15: Laugh"
+      - "16: No"
+      - "17: Sad"
+      - "18: Sassy"
+      - "19: Scared"
+      - "20: Spin"
+      - "21: Yes"
+      - "22: Scan"
+      - "23: Sleep"
+      - "24: Surprised"
+
+      # Idle Animations (25-27)
+      - "25: Idle 1"
+      - "26: Idle 2"
+      - "27: Idle 3"
+
+      # Patrol Animations (28-30)
+      - "28: Patrol Alarm"
+      - "29: Patrol Hit"
+      - "30: Patrol Patrolling"
+
+      # Watch With Me Animations (31-54)
+      - "31: WWM Angry"
+      - "32: WWM Anxious"
+      - "33: WWM Bow"
+      - "34: WWM Concern"
+      - "35: WWM Curious"
+      - "36: WWM Double Take"
+      - "37: WWM Excited"
+      - "38: WWM Fiery"
+      - "39: WWM Frustrated"
+      - "40: WWM Happy"
+      - "41: WWM Jittery"
+      - "42: WWM Laugh"
+      - "43: WWM Long Shake"
+      - "44: WWM No"
+      - "45: WWM Ominous"
+      - "46: WWM Relieved"
+      - "47: WWM Sad"
+      - "48: WWM Scared"
+      - "49: WWM Shake"
+      - "50: WWM Surprised"
+      - "51: WWM Taunting"
+      - "52: WWM Whisper"
+      - "53: WWM Yelling"
+      - "54: WWM Yoohoo"
+
+      # Motor (55)
+      - "55: Motor"
+    icon: mdi:robot

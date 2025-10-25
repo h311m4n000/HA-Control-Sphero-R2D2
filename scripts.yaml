@@ -1,0 +1,427 @@
+# ========================================
+# R2-D2 Complete Animation Scripts
+# All 56 Animations (0-55)
+# ========================================
+# Add this to your configuration.yaml
+
+# Charger Animations (0-6)
+r2d2_charger_1:
+  alias: "R2-D2 Charger 1"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 0
+
+r2d2_charger_2:
+  alias: "R2-D2 Charger 2"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 1
+
+r2d2_charger_3:
+  alias: "R2-D2 Charger 3"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 2
+
+r2d2_charger_4:
+  alias: "R2-D2 Charger 4"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 3
+
+r2d2_charger_5:
+  alias: "R2-D2 Charger 5"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 4
+
+r2d2_charger_6:
+  alias: "R2-D2 Charger 6"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 5
+
+r2d2_charger_7:
+  alias: "R2-D2 Charger 7"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 6
+
+# Emote Animations (7-24)
+r2d2_alarm:
+  alias: "R2-D2 Alarm"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 7
+
+r2d2_angry:
+  alias: "R2-D2 Angry"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 8
+
+r2d2_annoyed:
+  alias: "R2-D2 Annoyed"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 9
+
+r2d2_chatty:
+  alias: "R2-D2 Chatty"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 10
+
+r2d2_drive:
+  alias: "R2-D2 Drive"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 11
+
+r2d2_excited:
+  alias: "R2-D2 Excited"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 12
+
+r2d2_happy:
+  alias: "R2-D2 Happy"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 13
+
+r2d2_ion_blast:
+  alias: "R2-D2 Ion Blast"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 14
+
+r2d2_laugh:
+  alias: "R2-D2 Laugh"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 15
+
+r2d2_no:
+  alias: "R2-D2 No"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 16
+
+r2d2_sad:
+  alias: "R2-D2 Sad"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 17
+
+r2d2_sassy:
+  alias: "R2-D2 Sassy"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 18
+
+r2d2_scared:
+  alias: "R2-D2 Scared"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 19
+
+r2d2_spin:
+  alias: "R2-D2 Spin"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 20
+
+r2d2_yes:
+  alias: "R2-D2 Yes"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 21
+
+r2d2_scan:
+  alias: "R2-D2 Scan"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 22
+
+r2d2_sleep:
+  alias: "R2-D2 Sleep Animation"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 23
+
+r2d2_surprised:
+  alias: "R2-D2 Surprised"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 24
+
+# Idle Animations (25-27)
+r2d2_idle_1:
+  alias: "R2-D2 Idle 1"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 25
+
+r2d2_idle_2:
+  alias: "R2-D2 Idle 2"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 26
+
+r2d2_idle_3:
+  alias: "R2-D2 Idle 3"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 27
+
+# Patrol Animations (28-30)
+r2d2_patrol_alarm:
+  alias: "R2-D2 Patrol Alarm"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 28
+
+r2d2_patrol_hit:
+  alias: "R2-D2 Patrol Hit"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 29
+
+r2d2_patrol_patrolling:
+  alias: "R2-D2 Patrol Patrolling"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 30
+
+# Watch With Me Animations (31-54)
+r2d2_wwm_angry:
+  alias: "R2-D2 WWM Angry"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 31
+
+r2d2_wwm_anxious:
+  alias: "R2-D2 WWM Anxious"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 32
+
+r2d2_wwm_bow:
+  alias: "R2-D2 WWM Bow"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 33
+
+r2d2_wwm_concern:
+  alias: "R2-D2 WWM Concern"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 34
+
+r2d2_wwm_curious:
+  alias: "R2-D2 WWM Curious"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 35
+
+r2d2_wwm_double_take:
+  alias: "R2-D2 WWM Double Take"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 36
+
+r2d2_wwm_excited:
+  alias: "R2-D2 WWM Excited"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 37
+
+r2d2_wwm_fiery:
+  alias: "R2-D2 WWM Fiery"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 38
+
+r2d2_wwm_frustrated:
+  alias: "R2-D2 WWM Frustrated"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 39
+
+r2d2_wwm_happy:
+  alias: "R2-D2 WWM Happy"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 40
+
+r2d2_wwm_jittery:
+  alias: "R2-D2 WWM Jittery"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 41
+
+r2d2_wwm_laugh:
+  alias: "R2-D2 WWM Laugh"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 42
+
+r2d2_wwm_long_shake:
+  alias: "R2-D2 WWM Long Shake"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 43
+
+r2d2_wwm_no:
+  alias: "R2-D2 WWM No"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 44
+
+r2d2_wwm_ominous:
+  alias: "R2-D2 WWM Ominous"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 45
+
+r2d2_wwm_relieved:
+  alias: "R2-D2 WWM Relieved"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 46
+
+r2d2_wwm_sad:
+  alias: "R2-D2 WWM Sad"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 47
+
+r2d2_wwm_scared:
+  alias: "R2-D2 WWM Scared"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 48
+
+r2d2_wwm_shake:
+  alias: "R2-D2 WWM Shake"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 49
+
+r2d2_wwm_surprised:
+  alias: "R2-D2 WWM Surprised"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 50
+
+r2d2_wwm_taunting:
+  alias: "R2-D2 WWM Taunting"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 51
+
+r2d2_wwm_whisper:
+  alias: "R2-D2 WWM Whisper"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 52
+
+r2d2_wwm_yelling:
+  alias: "R2-D2 WWM Yelling"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 53
+
+r2d2_wwm_yoohoo:
+  alias: "R2-D2 WWM Yoohoo"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 54
+
+# Motor (55)
+r2d2_motor:
+  alias: "R2-D2 Motor"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: 55
+
+# Bonus: Random Animation
+r2d2_random_animation:
+  alias: "R2-D2 Random Animation"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: "{{ range(0, 56) | random }}"
+
+# Bonus: Random Emote
+r2d2_random_emote:
+  alias: "R2-D2 Random Emote"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: "{{ range(7, 25) | random }}"
+
+# Bonus: Random Watch With Me
+r2d2_random_wwm:
+  alias: "R2-D2 Random Watch With Me"
+  sequence:
+    - action: rest_command.r2d2_animation
+      data:
+        num: "{{ range(31, 55) | random }}"
