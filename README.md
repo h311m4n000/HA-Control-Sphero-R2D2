@@ -20,7 +20,7 @@ The arduino code has been created with the help of Claude. While I'm a system ad
 
 # What you need:
 - An ESP32 with a bluetooth and wifi chip like the NodeMCU ESP32-32S for instance.
-- Home Assistant with the REST integration
+- Home Assistant with the REST and RESTful integrations
 
 # How it works:
 - The ESP32 will connect to R2D2 through Bluetooth and wake him up
