@@ -6,6 +6,11 @@ With this arduino code you can control the animations of a Sphero R2D2 droid toy
 You cannot move him around manually as it's not something I had a need for and it wouldn't make much sense within home assistant anyway.
 It will also report battery status to home assistant if you decide to leave him unplugged.
 
+# How useful is it?
+Honestly? It's really for fun. I have it in a simple automation where when I switch on my Gaming-PC it'll do a little happy dance, and when I turn the PC off, it'll be sad.
+
+You could also use it if you have a smart doorbell to react to people ringing at your door. You can call it to be scared when the lights turn off...imagination is your limit!
+
 # Credit where credit is due
 This integration has been made possible with various resources on the internet of others that have already reverse engineered the sphero droids, namely R2D2.
 Links to those resources can be found below
