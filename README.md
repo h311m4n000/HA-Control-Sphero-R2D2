@@ -4,7 +4,7 @@
 Control your Sphero R2D2 with an ESP32 and call his animations from Home Assistant!
 With this arduino code you can control the animations of a Sphero R2D2 droid toy. 
 You cannot move him around manually as it's not something I had a need for and it wouldn't make much sense within home assistant anyway.
-It will also report battery status to home assistant if you decide to leave him unplugged.
+It will also report battery status to home assistant if you decide to leave him unplugged. The Sphero R2D2 works even when plugged in (careful though if you use movement when he is attached to his power cable...!)
 
 # How useful is it?
 Honestly? It's really for fun. I have it in a simple automation where when I switch on my Gaming-PC it'll do a little happy dance, and when I turn the PC off, it'll be sad.
@@ -25,6 +25,7 @@ The arduino code has been created with the help of Claude. While I'm a system ad
 # How it works:
 - The ESP32 will connect to R2D2 through Bluetooth and wake him up
 - The ESP32 will connect to your Wifi and provide a simple API where you can call the animations on R2D2
+- From home assistant using REST and RESTful you can query the API and wake R2D2, call all the animations, put him in tripod/bipod mode and put him back to sleep
 
 # A little action video
 
