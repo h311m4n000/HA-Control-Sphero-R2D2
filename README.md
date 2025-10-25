@@ -28,7 +28,7 @@ The arduino code has been created with the help of Claude. While I'm a system ad
 
 # A little action video
 
-[![Watch the video](https://raw.githubusercontent.com/h311m4n000/HA-Control-Sphero-R2D2/main/r2d2.jpeg)](https://raw.githubusercontent.com/h311m4n000/HA-Control-Sphero-R2D2/main/r2d2.mp4)
+[![Watch the video]](https://youtube.com/shorts/zgOqJGl-u00)
 
 # API Commands
 Once the sketch has been uploaded to your ESP32, you can call these actions from your web browser (or use curl):
