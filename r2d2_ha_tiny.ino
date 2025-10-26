@@ -16,6 +16,8 @@ BLEClient* c = nullptr;
 BLERemoteCharacteristic* m = nullptr;
 uint8_t s = 0;
 bool connected = false;
+unsigned long lastCommandTime = 0;
+const unsigned long SLEEP_TIMEOUT = 600000; // 10 minutes in milliseconds
 WebServer srv(80);
 
 uint8_t chk(uint8_t* b, size_t l) {
@@ -47,8 +49,14 @@ void build(uint8_t* o, size_t* ol, uint8_t d, uint8_t c, uint8_t* p, size_t pl) 
 }
 
 class CB : public BLEClientCallbacks {
-  void onConnect(BLEClient* p) { connected = true; }
-  void onDisconnect(BLEClient* p) { connected = false; }
+  void onConnect(BLEClient* p) { 
+    connected = true;
+    Serial.println("BLE connected");
+  }
+  void onDisconnect(BLEClient* p) { 
+    connected = false;
+    Serial.println("BLE disconnected");
+  }
 };
 
 void w(uint8_t d, uint8_t c, uint8_t* p, size_t pl) {
@@ -57,6 +65,7 @@ void w(uint8_t d, uint8_t c, uint8_t* p, size_t pl) {
   size_t pl2;
   build(pkt, &pl2, d, c, p, pl);
   m->writeValue(pkt, pl2, false);
+  lastCommandTime = millis();
 }
 
 uint8_t bat() {
@@ -70,6 +79,18 @@ uint8_t bat() {
     }
   }
   return 0;
+}
+
+bool isAsleep() {
+  // Not connected = definitely asleep
+  if (!connected) return true;
+  
+  // No commands ever sent = unknown, assume awake
+  if (lastCommandTime == 0) return false;
+  
+  // Check if idle for more than SLEEP_TIMEOUT (10 minutes)
+  unsigned long idleTime = millis() - lastCommandTime;
+  return (idleTime > SLEEP_TIMEOUT);
 }
 
 void conn() {
@@ -101,6 +122,7 @@ void conn() {
   delay(300);
   uint8_t np[] = {};
   w(0x13, 0x0D, np, 0);
+  lastCommandTime = millis();
 }
 
 void setup() {
@@ -148,8 +170,12 @@ void setup() {
     Serial.println("R2-D2 connection failed\n");
   }
   
-  srv.on("/status", []() { 
-    String r = "{\"c\":"; r += connected?"1":"0"; r += ",\"b\":"; r += String(bat()); r += "}";
+  srv.on("/status", []() {
+    String r = "{\"c\":"; r += connected?"1":"0"; 
+    r += ",\"b\":"; r += String(bat()); 
+    r += ",\"asleep\":"; r += isAsleep()?"1":"0";
+    r += ",\"idle_mins\":"; r += String((millis() - lastCommandTime) / 60000);
+    r += "}";
     srv.send(200, "application/json", r);
   });
   
@@ -159,9 +185,23 @@ void setup() {
   });
   
   srv.on("/wake", []() {
-    if (!connected) { srv.send(503, "text/plain", "NC"); return; }
+    Serial.println("Wake command received");
+    
+    if (!connected) {
+      Serial.println("Not connected, reconnecting...");
+      conn();
+      delay(1000);
+    }
+    
+    if (!connected) { 
+      srv.send(503, "text/plain", "Failed to connect"); 
+      return; 
+    }
+    
+    Serial.println("Sending wake command");
     uint8_t p[] = {};
     w(0x13, 0x0D, p, 0);
+    
     srv.send(200, "text/plain", "OK");
   });
   
@@ -173,20 +213,63 @@ void setup() {
   });
   
   srv.on("/anim", []() {
-    if (!connected) { srv.send(503, "text/plain", "NC"); return; }
+    Serial.println("Animation request");
+    
+    if (!connected) {
+      Serial.println("Not connected, reconnecting...");
+      conn();
+      delay(1000);
+    }
+    
+    if (!connected) { 
+      srv.send(503, "text/plain", "Failed to connect"); 
+      return; 
+    }
+    
+    // Wake if probably asleep
+    if (isAsleep()) {
+      Serial.println("Probably asleep (>10min idle), waking...");
+      uint8_t wp[] = {};
+      w(0x13, 0x0D, wp, 0);
+      delay(2000);
+    }
+    
     if (!srv.hasArg("n")) { srv.send(400, "text/plain", "E"); return; }
     int n = srv.arg("n").toInt();
-    if (n < 0 || n > 56) { srv.send(400, "text/plain", "E"); return; }
+    if (n < 0 || n > 55) { srv.send(400, "text/plain", "E"); return; }
+    
+    Serial.print("Playing animation: "); Serial.println(n);
     uint8_t p[] = {0x00, (uint8_t)n};
     w(0x17, 0x05, p, 2);
     srv.send(200, "text/plain", "OK");
   });
   
   srv.on("/stance", []() {
-    if (!connected) { srv.send(503, "text/plain", "NC"); return; }
+    Serial.println("Stance request");
+    
+    if (!connected) {
+      Serial.println("Not connected, reconnecting...");
+      conn();
+      delay(1000);
+    }
+    
+    if (!connected) { 
+      srv.send(503, "text/plain", "Failed to connect"); 
+      return; 
+    }
+    
+    // Wake if probably asleep
+    if (isAsleep()) {
+      Serial.println("Probably asleep (>10min idle), waking...");
+      uint8_t wp[] = {};
+      w(0x13, 0x0D, wp, 0);
+      delay(2000);
+    }
+    
     if (!srv.hasArg("t")) { srv.send(400, "text/plain", "E"); return; }
     int t = srv.arg("t").toInt();
     if (t < 1 || t > 2) { srv.send(400, "text/plain", "E"); return; }
+    
     uint8_t p[] = {(uint8_t)t};
     w(0x17, 0x0D, p, 1);
     srv.send(200, "text/plain", "OK");
