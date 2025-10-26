@@ -1,5 +1,3 @@
-
-
 # HA-Control-Sphero-R2D2
 Control your Sphero R2D2 with an ESP32 and call his animations from Home Assistant!
 With this arduino code you can control the animations of a Sphero R2D2 droid toy. 
@@ -30,6 +28,19 @@ The arduino code has been created with the help of Claude. While I'm a system ad
 # In action
 I've uploaded a small mp4 video r2d2.mp4 that you can watch with him controlled from HA.
 
+#### Update 26.10.2025
+I've added a new function to the code that checks if R2D2 is connected and asleep/awake. This is useful since R2 will typically go to sleep after 10 minutes. If he is a sleep, he is still connected over bluetooth, but will not respond to animations. A new endpoint is created: /status. This endpoint reports the following json as an example:
+
+```
+{
+    "c": 1,
+    "b": 92,
+    "asleep": 1,
+    "idle_mins": 10
+}
+```
+In automations, you can check then check if R2D2 is asleep and if he is, wake him up before sending an animation. The configuration.yaml has been updated with the new sensors.
+
 # API Commands
 Once the sketch has been uploaded to your ESP32, you can call these actions from your web browser (or use curl):
 ### Wake R2D2
@@ -47,6 +58,8 @@ Were n is a number between 0 and 56
     http://esp32_ip/stande?type=2
 ### Get the battery charge level
     http://esp32_ip/battery
+### Get the R2D2's connected/awake status
+    http://esp32_ip/status
 
 # Home Assistant integration
 I have not yet turned this into a full integration you can add under custom_components. 
