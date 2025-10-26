@@ -22,6 +22,16 @@ rest:
         value_template: "{{ value_json.b }}"
         unit_of_measurement: "%"
         device_class: battery
+      - name: "R2-D2 Connection"
+        value_template: "{{ 'Connected' if value_json.c == 1 else 'Disconnected' }}"
+      - name: "R2-D2 Sleep State"
+        value_template: "{{ 'Asleep' if value_json.asleep == 1 else 'Awake' }}"
+        icon: >
+          {% if value_json.asleep == 1 %}
+            mdi:sleep
+          {% else %}
+            mdi:robot
+          {% endif %}
 
 input_select:
   r2d2_animation:
@@ -94,4 +104,5 @@ input_select:
 
       # Motor (55)
       - "55: Motor"
+
     icon: mdi:robot
